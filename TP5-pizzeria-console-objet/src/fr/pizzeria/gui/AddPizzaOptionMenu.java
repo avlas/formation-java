@@ -1,7 +1,7 @@
 package fr.pizzeria.gui;
 
-import fr.pizzeria.console.OptionMenu;
 import fr.pizzeria.console.PizzeriaAdminConsoleApp;
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.model.Pizza;
 
 /**
@@ -10,12 +10,10 @@ import fr.pizzeria.model.Pizza;
  */
 public class AddPizzaOptionMenu extends OptionMenu {
 
-	static int lastIndex = 0;
+	private IPizzaDao dao;
 
-	private Pizza[] pizzas;
-
-	public AddPizzaOptionMenu(Pizza[] listPizzas) {
-		this.pizzas = listPizzas;
+	public AddPizzaOptionMenu(IPizzaDao dao) {
+		this.dao = dao;
 	}
 
 	/**
@@ -34,16 +32,8 @@ public class AddPizzaOptionMenu extends OptionMenu {
 		System.out.println("Choose price : ");
 		double userPrice = PizzeriaAdminConsoleApp.input.nextDouble();
 
-		for (int i = 0; i < this.pizzas.length; i++) {
-			if (this.pizzas[i] != null) {
-				lastIndex = this.pizzas[i].getId();
-			}
-		}
-
-		this.pizzas[lastIndex + 1] = new Pizza(userCode, userName, userPrice);
-
-		System.out.println("This pizza was added : " + this.pizzas[lastIndex + 1].getCode() + " -> "
-				+ this.pizzas[lastIndex + 1].getName() + " (" + this.pizzas[lastIndex + 1].getPrice() + " €)");
+		Pizza newPizza = new Pizza(userCode, userName, userPrice);
+		dao.saveNewPizza(newPizza);
 
 		System.out.println("\n --------------------------------------------- ");
 

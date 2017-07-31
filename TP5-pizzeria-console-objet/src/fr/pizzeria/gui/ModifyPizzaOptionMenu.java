@@ -1,7 +1,7 @@
 package fr.pizzeria.gui;
 
-import fr.pizzeria.console.OptionMenu;
 import fr.pizzeria.console.PizzeriaAdminConsoleApp;
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.model.Pizza;
 
 /**
@@ -10,10 +10,10 @@ import fr.pizzeria.model.Pizza;
  */
 public class ModifyPizzaOptionMenu extends OptionMenu {
 
-	private Pizza[] pizzas;
+	private IPizzaDao dao;
 
-	public ModifyPizzaOptionMenu(Pizza[] listPizzas) {
-		this.pizzas = listPizzas;
+	public ModifyPizzaOptionMenu(IPizzaDao dao) {
+		this.dao = dao;
 	}
 
 	/**
@@ -23,32 +23,26 @@ public class ModifyPizzaOptionMenu extends OptionMenu {
 	public void execute() {
 
 		System.out.println("\n***** MODIFY PIZZA ***** ");
-		PizzeriaAdminConsoleApp.listingPizzas.execute();
-
 		System.out.println("\n***** Please choose pizza's code you want to modify : ***** ");
-		String userCode = PizzeriaAdminConsoleApp.input.next();
+		String codeUser = PizzeriaAdminConsoleApp.input.next();
+		
+	//	Pizza pizza = dao.findPizzaByCode(codeUser);
+	//	if (pizza!= null) {
+			System.out.println("Choose a code : ");
+			String userCode = PizzeriaAdminConsoleApp.input.next();
+	//		pizza.setCode(userCode);
 
-		for (int i = 0; i < this.pizzas.length - 1; i++) {
-			if (this.pizzas[i].getCode().equals(userCode)) {
-				System.out.println("Choose a code : ");
-				userCode = PizzeriaAdminConsoleApp.input.next();
-				this.pizzas[i].setCode(userCode);
+			System.out.println("Choose a name (whitout spaces) : ");
+			String userName = PizzeriaAdminConsoleApp.input.next();
+	//		pizza.setName(userName);
 
-				System.out.println("Choose a name (whitout spaces) : ");
-				String userName = PizzeriaAdminConsoleApp.input.next();
-				this.pizzas[i].setName(userName);
-
-				System.out.println("Choose price : ");
-				double userPrice = PizzeriaAdminConsoleApp.input.nextDouble();
-				this.pizzas[i].setPrice(userPrice);
-
-				System.out.println("This pizza was modified : " + this.pizzas[i].getCode() + " -> "
-						+ this.pizzas[i].getName() + " (" + this.pizzas[i].getPrice() + " €)");
-				break;
-			}
-		}
-
+			System.out.println("Choose price : ");
+			double userPrice = PizzeriaAdminConsoleApp.input.nextDouble();
+	//		pizza.setPrice(userPrice);
+			
+			dao.updatePizza(codeUser, new Pizza(userCode, userName, userPrice));		
+	//	}
+		
 		System.out.println("\n --------------------------------------------- ");
-
 	}
 }

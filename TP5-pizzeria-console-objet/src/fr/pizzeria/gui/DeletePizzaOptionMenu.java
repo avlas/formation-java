@@ -1,8 +1,7 @@
 package fr.pizzeria.gui;
 
-import fr.pizzeria.console.OptionMenu;
 import fr.pizzeria.console.PizzeriaAdminConsoleApp;
-import fr.pizzeria.model.Pizza;
+import fr.pizzeria.dao.IPizzaDao;
 
 /**
  * @author AVL
@@ -10,10 +9,10 @@ import fr.pizzeria.model.Pizza;
  */
 public class DeletePizzaOptionMenu extends OptionMenu {
 
-	private Pizza[] pizzas;
+	private IPizzaDao dao;
 
-	public DeletePizzaOptionMenu(Pizza[] listPizzas) {
-		this.pizzas = listPizzas;
+	public DeletePizzaOptionMenu(IPizzaDao dao) {
+		this.dao = dao;
 	}
 
 	/**
@@ -23,17 +22,9 @@ public class DeletePizzaOptionMenu extends OptionMenu {
 	public void execute() {
 		System.out.println("\n***** DELETE PIZZA ***** ");
 
-		PizzeriaAdminConsoleApp.listingPizzas.execute();
-
 		System.out.println("\n***** Please choose pizza's code you want to delete : ***** ");
-		String userCode = PizzeriaAdminConsoleApp.input.next();
 
-		for (int i = 0; i < this.pizzas.length - 1; i++) {
-			if (this.pizzas[i].getCode().equals(userCode)) {
-				this.pizzas[i] = null;
-				break;
-			}
-		}
+		dao.deletePizza(PizzeriaAdminConsoleApp.input.next());
 
 		System.out.println("\n --------------------------------------------- ");
 	}
