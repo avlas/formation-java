@@ -45,11 +45,7 @@ public class PizzaDaoMemoryImpl implements IPizzaDao {
 		Pizza pizza = null;
 		for (int i = 0; i < pizzas.length; i++) {
 			if (pizzas[i] != null && (pizzas[i].getCode().equals(codePizza))) {
-				pizza = new Pizza();
-				pizza.setId(pizzas[i].getId());
-				pizza.setCode(pizzas[i].getCode());
-				pizza.setName(pizzas[i].getName());
-				pizza.setPrice(pizzas[i].getPrice());
+				pizza = pizzas[i];
 			}
 		}
 		return pizza;
