@@ -22,9 +22,9 @@ public class DeletePizzaOptionMenu extends OptionMenu {
 	public void execute() {
 		System.out.println("\n***** DELETE PIZZA ***** ");
 
-		System.out.println("\n***** Please choose pizza's code you want to delete : ***** ");
+		System.out.println("\nChoose pizza's code you want to delete : ");
 
-		dao.deletePizza(PizzeriaAdminConsoleApp.input.next().trim());
+		dao.deletePizza(PizzeriaAdminConsoleApp.input.next().trim().toUpperCase());
 
 		System.out.println("\n --------------------------------------------- ");
 	}

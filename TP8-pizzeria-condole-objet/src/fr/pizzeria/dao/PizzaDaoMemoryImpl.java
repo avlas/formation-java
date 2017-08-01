@@ -30,9 +30,19 @@ public class PizzaDaoMemoryImpl implements IPizzaDao {
 	}
 
 	@Override
+	public boolean isCodeAlreadyExist(String codeToVerify) {
+		for (Pizza pizza : pizzas) {
+			if (pizza.getCode().equals(codeToVerify)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	@Override
 	public List<Pizza> findAllPizzas() {
 		for (Pizza pizza : pizzas) {
-			System.out.println(pizza.getCode() + " -> " + pizza.getName() + " (" + pizza.getPrice() + " \u20AC)");
+			System.out.println(pizza.getId() + " - " + pizza.getCode() + " -> " + pizza.getName() + " (" + pizza.getPrice() + " \u20AC)");
 		}
 		return pizzas;
 	}
@@ -51,12 +61,11 @@ public class PizzaDaoMemoryImpl implements IPizzaDao {
 			pizzaToUpdate.setName(pizzaUpdates.getName());
 			pizzaToUpdate.setPrice(pizzaUpdates.getPrice());
 		}
-		System.out.println("This pizza was modified : " + pizzaToUpdate.getCode() + " -> " + pizzaToUpdate.getName()
+		System.out.println("THE MODIFIED PIZZA IS : " + pizzaToUpdate.getCode() + " -> " + pizzaToUpdate.getName()
 				+ " (" + pizzaToUpdate.getPrice() + " \u20AC)");
 		return true;
 	}
 
-	
 	public Pizza findPizzaByCode(String codePizza) {
 		Pizza foundPizza = null;
 
@@ -73,9 +82,9 @@ public class PizzaDaoMemoryImpl implements IPizzaDao {
 		for (Pizza pizza : pizzas) {
 			if (pizza.getCode().equals(pizzaCodeToDelete)) {
 				pizzas.remove(pizza);
+				return true;
 			}
 		}
-
-		return true;
+		return false;
 	}
 }

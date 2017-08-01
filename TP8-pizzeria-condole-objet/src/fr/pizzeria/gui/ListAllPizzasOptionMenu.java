@@ -20,7 +20,8 @@ public class ListAllPizzasOptionMenu extends OptionMenu {
 	@Override
 	public void execute() {
 		System.out.println("\n***** LIST ALL PIZZAS : ***** ");
-
+		System.out.println("\nID - CODE -> NAME (PRICE)");
+		System.out.println("-------------------------");
 		dao.findAllPizzas();
 
 		System.out.println("\n --------------------------------------------- ");

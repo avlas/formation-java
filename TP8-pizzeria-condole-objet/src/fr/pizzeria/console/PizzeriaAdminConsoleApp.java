@@ -12,14 +12,15 @@ import fr.pizzeria.gui.DeletePizzaOptionMenu;
 import fr.pizzeria.gui.ListAllPizzasOptionMenu;
 import fr.pizzeria.gui.UpdatePizzaOptionMenu;
 
-public class PizzeriaAdminConsoleApp {
-
-	public static ListAllPizzasOptionMenu listingPizzas;
-
+public class PizzeriaAdminConsoleApp  {
+	
+	static ListAllPizzasOptionMenu listingPizzas;
+	
 	// Initialise the scanner who will ask questions to the user
 	public static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
+
 		int userOption = 0;
 		
 		IPizzaDao dao = new PizzaDaoMemoryImpl();
@@ -41,6 +42,7 @@ public class PizzeriaAdminConsoleApp {
 					break;
 	
 				case 3:
+					listingPizzas = new ListAllPizzasOptionMenu(dao);
 					listingPizzas.execute();
 	
 					UpdatePizzaOptionMenu modifingPizza = new UpdatePizzaOptionMenu(dao);
@@ -48,6 +50,7 @@ public class PizzeriaAdminConsoleApp {
 					break;
 	
 				case 4:
+					listingPizzas = new ListAllPizzasOptionMenu(dao);
 					listingPizzas.execute();
 	
 					DeletePizzaOptionMenu deletingPizza = new DeletePizzaOptionMenu(dao);
@@ -74,7 +77,5 @@ public class PizzeriaAdminConsoleApp {
 		System.out.println("3. Modify a pizza");
 		System.out.println("4. Delete a pizza");
 		System.out.println("99. Exit");
-
-		System.out.println("\nPlease choose an option : ");
 	}
 }

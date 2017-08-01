@@ -14,7 +14,9 @@ import fr.pizzeria.model.Pizza;
 public interface IPizzaDao {
 	
 	List<Pizza> findAllPizzas();
-	public Pizza findPizzaByCode(String codePizza);
+	boolean isCodeAlreadyExist(String codePizza);
+	
+	Pizza findPizzaByCode(String codePizza);
 	boolean saveNewPizza(Pizza pizza);
 	boolean updatePizza(String codePizza, Pizza pizza);
 	boolean deletePizza(String codePizza);

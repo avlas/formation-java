@@ -23,31 +23,42 @@ public class UpdatePizzaOptionMenu extends OptionMenu {
 	public void execute() {
 
 		System.out.println("\n***** MODIFY PIZZA ***** ");
-		System.out.println("\n***** Please choose pizza's code you want to modify : ***** ");
-		String userCodeToUpdate = PizzeriaAdminConsoleApp.input.next().trim();
-		
-		Pizza pizzaToUpdate = dao.findPizzaByCode(userCodeToUpdate);
-		if (pizzaToUpdate != null) {
-			System.out.println("Choose a code : ");
-			String newUserCode = PizzeriaAdminConsoleApp.input.next().trim();
-			pizzaToUpdate.setCode(newUserCode);
+		System.out.println("\nChoose pizza's code you want to modify : ");
+		String userCodeToUpdate = PizzeriaAdminConsoleApp.input.next().trim().toUpperCase();
 
-			System.out.println("Choose a name (whitout spaces) : ");
-			String newUserName = PizzeriaAdminConsoleApp.input.next().trim();
-			pizzaToUpdate.setName(newUserName);
+		if (dao.isCodeAlreadyExist(userCodeToUpdate)) {
+			Pizza pizzaToUpdate = dao.findPizzaByCode(userCodeToUpdate);
 
-			System.out.println("Choose price : ");
-			double newUserPrice = PizzeriaAdminConsoleApp.input.nextDouble();
-			pizzaToUpdate.setPrice(newUserPrice);
-			
-			System.out.println("This pizza was modified : " + pizzaToUpdate.getCode() + " -> " + pizzaToUpdate.getName()
-			+ " (" + pizzaToUpdate.getPrice() + " \u20AC)");
-			
-	//		dao.updatePizza(userCodeToUpdate, new Pizza(newUserCode, newUserName, newUserPrice));		
+			if (pizzaToUpdate != null) {
+				System.out.println("Choose a code : ");
+				String newUserCode = PizzeriaAdminConsoleApp.input.next().trim().toUpperCase();
+
+				if (dao.isCodeAlreadyExist(newUserCode)) {
+					System.out.println("THIS CODE ALREADY EXIST - Choose a different one !!");
+				} else {
+					pizzaToUpdate.setCode(newUserCode);
+
+					System.out.println("Choose a name (whitout spaces) : ");
+					String newUserName = PizzeriaAdminConsoleApp.input.next().trim().toUpperCase();
+					pizzaToUpdate.setName(newUserName);
+
+					System.out.println("Choose price : ");
+					String newUserPriceStr = PizzeriaAdminConsoleApp.input.next().trim();
+
+					if (!newUserPriceStr.isEmpty()) {
+						double newUserPrice = Double.parseDouble(newUserPriceStr);
+						pizzaToUpdate.setPrice(newUserPrice);
+
+						System.out.println("MODIFIED PIZZA : " + pizzaToUpdate.getCode() + " -> "
+								+ pizzaToUpdate.getName() + " (" + pizzaToUpdate.getPrice() + " \u20AC)");
+					}
+					// dao.updatePizza(userCodeToUpdate, new Pizza(newUserCode, newUserName, newUserPrice));
+				}
+			}
 		} else {
-			System.out.println("Pizza not found !!");
+			System.out.println("PIZZA NOT FOUND !!");
 		}
-		
+
 		System.out.println("\n --------------------------------------------- ");
 	}
 }
