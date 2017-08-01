@@ -66,5 +66,9 @@ public class Pizza {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "" + this.id + " - " + this.code + " -> " + this.name + " (" + this.price + " \u20AC)";
+	}
 }
