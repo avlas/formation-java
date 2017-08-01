@@ -77,10 +77,11 @@ public class PizzaDaoMemoryImpl implements IPizzaDao {
 				pizzas[i].setPrice(pizza.getPrice());
 				System.out.println("This pizza was modified : " + pizzas[i].getCode() + " -> " + pizzas[i].getName()
 						+ " (" + pizzas[i].getPrice() + " \u20AC)");
+				return true;
 			}
 		}
-
-		return true;
+		
+		return false;
 	}
 
 	@Override
