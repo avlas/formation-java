@@ -6,7 +6,7 @@ package fr.pizzeria.console;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
-import fr.pizzeria.dao.PizzaDaoMemoryImpl;
+import fr.pizzeria.dao.PizzaDaoMemoryArrayListImpl;
 import fr.pizzeria.gui.AddPizzaOptionMenu;
 import fr.pizzeria.gui.DeletePizzaOptionMenu;
 import fr.pizzeria.gui.ListAllPizzasOptionMenu;
@@ -23,7 +23,7 @@ public class PizzeriaAdminConsoleApp  {
 
 		int userOption = 0;
 		
-		IPizzaDao dao = new PizzaDaoMemoryImpl();
+		IPizzaDao dao = new PizzaDaoMemoryArrayListImpl();
 
 		do {
 			showMenu();

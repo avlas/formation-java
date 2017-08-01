@@ -12,11 +12,11 @@ import fr.pizzeria.model.Pizza;
  * @author ali
  *
  */
-public class PizzaDaoMemoryImpl implements IPizzaDao {
+public class PizzaDaoMemoryArrayListImpl implements IPizzaDao {
 
 	private List<Pizza> pizzas;
 
-	public PizzaDaoMemoryImpl() {
+	public PizzaDaoMemoryArrayListImpl() {
 		pizzas = new ArrayList<>();
 
 		pizzas.add(new Pizza("PEP", "Pépéroni", 12.5));
