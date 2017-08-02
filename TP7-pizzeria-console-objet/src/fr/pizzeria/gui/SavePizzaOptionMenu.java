@@ -8,11 +8,11 @@ import fr.pizzeria.model.Pizza;
  * @author AVL
  *
  */
-public class AddPizzaOptionMenu extends OptionMenu {
+public class SavePizzaOptionMenu extends OptionMenu {
 
 	private IPizzaDao dao;
 
-	public AddPizzaOptionMenu(IPizzaDao dao) {
+	public SavePizzaOptionMenu(IPizzaDao dao) {
 		this.dao = dao;
 	}
 
@@ -26,7 +26,7 @@ public class AddPizzaOptionMenu extends OptionMenu {
 		System.out.println("Choose a code : ");
 		String userCode = PizzeriaAdminConsoleApp.input.next().trim().toUpperCase();
 
-		if (dao.isCodeAlreadyExist(userCode)) {
+		if (dao.isExistingPizzaCode(userCode)) {
 			System.out.println("THIS CODE ALREADY EXIST - Choose a different one !!");
 		} else {
 			System.out.println("Choose a name (whitout spaces) : ");
@@ -38,7 +38,7 @@ public class AddPizzaOptionMenu extends OptionMenu {
 			if(!userPriceStr.isEmpty()){
 				double userPrice = Double.parseDouble(userPriceStr);	
 				Pizza pizza = new Pizza(userCode, userName, userPrice);
-				dao.saveNewPizza(pizza);
+				dao.savePizza(pizza);
 				
 				System.out.println("NEW PIZZA ADDED : " + pizza.getId() + " - "+ pizza.getCode() + " -> " + pizza.getName() + " (" + pizza.getPrice() + " \u20AC)");
 			}

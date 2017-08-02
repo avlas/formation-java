@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.PizzaDaoMemoryArrayListImpl;
-import fr.pizzeria.gui.AddPizzaOptionMenu;
+import fr.pizzeria.gui.SavePizzaOptionMenu;
 import fr.pizzeria.gui.DeletePizzaOptionMenu;
 import fr.pizzeria.gui.ListAllPizzasOptionMenu;
 import fr.pizzeria.gui.UpdatePizzaOptionMenu;
@@ -37,7 +37,7 @@ public class PizzeriaAdminConsoleApp  {
 					break;
 	
 				case 2:
-					AddPizzaOptionMenu addingPizza = new AddPizzaOptionMenu(dao);
+					SavePizzaOptionMenu addingPizza = new SavePizzaOptionMenu(dao);
 					addingPizza.execute();
 					break;
 	

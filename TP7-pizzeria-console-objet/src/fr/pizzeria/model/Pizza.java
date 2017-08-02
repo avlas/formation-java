@@ -23,7 +23,7 @@ public class Pizza {
 	public Pizza() {
 	}
 
-	/**
+	/** Constructor
 	 * @param code
 	 * @param name
 	 * @param price

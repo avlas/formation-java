@@ -26,14 +26,14 @@ public class UpdatePizzaOptionMenu extends OptionMenu {
 		System.out.println("\nChoose pizza's code you want to modify : ");
 		String userCodeToUpdate = PizzeriaAdminConsoleApp.input.next().trim().toUpperCase();
 
-		if (dao.isCodeAlreadyExist(userCodeToUpdate)) {
+		if (dao.isExistingPizzaCode(userCodeToUpdate)) {
 			Pizza pizzaToUpdate = dao.findPizzaByCode(userCodeToUpdate);
 
 			if (pizzaToUpdate != null) {
 				System.out.println("Choose a code : ");
 				String newUserCode = PizzeriaAdminConsoleApp.input.next().trim().toUpperCase();
 
-				if (dao.isCodeAlreadyExist(newUserCode)) {
+				if (dao.isExistingPizzaCode(newUserCode)) {
 					System.out.println("THIS CODE ALREADY EXIST - Choose a different one !!");
 				} else {
 					pizzaToUpdate.setCode(newUserCode);

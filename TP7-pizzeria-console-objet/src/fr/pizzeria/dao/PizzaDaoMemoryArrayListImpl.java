@@ -30,7 +30,7 @@ public class PizzaDaoMemoryArrayListImpl implements IPizzaDao {
 	}
 
 	@Override
-	public boolean isCodeAlreadyExist(String codeToVerify) {
+	public boolean isExistingPizzaCode(String codeToVerify) {
 		for (Pizza pizza : pizzas) {
 			if (pizza.getCode().equals(codeToVerify)) {
 				return true;
@@ -48,7 +48,7 @@ public class PizzaDaoMemoryArrayListImpl implements IPizzaDao {
 	}
 
 	@Override
-	public boolean saveNewPizza(Pizza pizzaToSave) {
+	public boolean savePizza(Pizza pizzaToSave) {
 		return pizzas.add(pizzaToSave);
 	}
 
