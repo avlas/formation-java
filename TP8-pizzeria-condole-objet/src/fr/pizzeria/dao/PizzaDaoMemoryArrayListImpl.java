@@ -19,7 +19,7 @@ public class PizzaDaoMemoryArrayListImpl implements IPizzaDao {
 	public PizzaDaoMemoryArrayListImpl() {
 		pizzas = new ArrayList<>();
 
-		pizzas.add(new Pizza("PEP", "Pépéroni", 12.5));
+		pizzas.add(new Pizza("PEP", "PÃ©pÃ©roni", 12.5));
 		pizzas.add(new Pizza("MAR", "Margherita", 14));
 		pizzas.add(new Pizza("REIN", "La Reine", 11.5));
 		pizzas.add(new Pizza("FRO", "La 4 fromages", 12));
