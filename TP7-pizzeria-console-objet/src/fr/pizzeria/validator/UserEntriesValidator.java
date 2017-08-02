@@ -23,7 +23,7 @@ public class UserEntriesValidator {
 		return userCode.toUpperCase();
 	}
 
-	public String validateUserName() throws StorageException {
+	public String validateUserName() {
 		System.out.println("Choose a NAME (without spaces) : ");
 		
 		String userName = PizzeriaAdminConsoleApp.input.next();
