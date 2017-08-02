@@ -3,12 +3,18 @@ package com.banque;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.banque.model.Client;
 import com.banque.model.Account;
 import com.banque.model.AccountFactory;
+import com.banque.model.Client;
 import com.banque.services.ExtractionServices;
 import com.banque.services.IExtractionServices;
 
+/**
+ * ApplicationAccount - The entry point of the application
+ * 
+ * @author ali
+ *
+ */
 public class ApplicationAccount {
 
 	public static List<Account> accounts = null;
@@ -18,39 +24,47 @@ public class ApplicationAccount {
 		int minAge = 40;
 		int maxAge = 71;
 		
+		// Accounts initialise
 		initAccounts();
 
 		IExtractionServices extractionServices = new ExtractionServices();
 
-		List<Account> comptesByAmount = extractionServices.getAccountsByAmount(accounts, amountToCheck);
-		if (comptesByAmount.isEmpty()) {
-			System.out.println("NO COMPTES FOUND - using this amount !!");
+		// Retrieve accounts by a given amount
+		List<Account> accountsByAmount = extractionServices.getAccountsByAmount(accounts, amountToCheck);
+		if (accountsByAmount.isEmpty()) {
+			System.out.println("NO ACCOUNT FOUND using this amount !!");
 		} else {
-			System.out.println(" Accounts greater than \"" + amountToCheck + "\"  :");
+			System.out.println("Accounts greater than \"" + amountToCheck + "\"  :");
+			System.out.println("--------------------------------------------- ");
+			System.out.println("NAME (AGE) | AMOUNT | OVERDRAFT | CEILING DECOUVERT");
 			System.out.println("--------------------------------------------- ");
 			
-			for (Account compte : comptesByAmount) {
-				System.out.println(compte);
+			for (Account account : accountsByAmount) {
+				System.out.println(account);
 			}
 		}
 
-		List<Account> comptesByAge = extractionServices.getAccountsByAge(accounts, minAge, maxAge);
-		if (comptesByAge.isEmpty()) {
-			System.out.println("NO COMPTES FOUND for this interval of age !!");
+		// Retrieve accounts by a range of client's age
+		List<Account> accountsByAge = extractionServices.getAccountsByAge(accounts, minAge, maxAge);
+		if (accountsByAge.isEmpty()) {
+			System.out.println("NO ACCOUNTS FOUND for this interval of age !!");
 		} else {
 			System.out.println("\n--------------------------------------------- ");
 			System.out.println(" Accounts between \"" + minAge + "\" and \"" + maxAge + "\" : ");
 			System.out.println("--------------------------------------------- ");
-			
-			for (Account compte : comptesByAge) {
-				System.out.println(compte);
+			System.out.println("NAME (AGE) | AMOUNT | OVERDRAFT | CEILING DECOUVERT");
+			System.out.println("--------------------------------------------- ");
+			for (Account account : accountsByAge) {
+				System.out.println(account);
 			}
 		}
 		
+		// Retrieve the accounts average
 		System.out.println("\n--------------------------------------------- ");
 		System.out.println("The average of the accounts = " + extractionServices.getAccountsAverage(accounts));
 	}
 
+	// Initialise the accounts
 	public static void initAccounts() {
 		accounts = new ArrayList<>();
 
