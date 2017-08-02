@@ -6,7 +6,7 @@ package fr.pizzeria.model;
 
 public class Pizza {
 
-	static int nextId = 0;
+	private static int nextId = 0;
 
 	/** id : int */
 	private Integer id;
@@ -20,15 +20,13 @@ public class Pizza {
 	/** price : double */
 	private double price;
 
-	public Pizza() {
-	}
-
 	/** Constructor
 	 * @param code
 	 * @param name
 	 * @param price
 	 */
 	public Pizza(String code, String name, double price) {
+		super();
 		this.id = nextId++;
 		this.code = code;
 		this.name = name;
@@ -69,6 +67,6 @@ public class Pizza {
 	
 	@Override
 	public String toString() {
-		return "" + this.id + " - " + this.code + " -> " + this.name + " (" + this.price + " \u20AC)";
+		return "id = " + this.id + " : " + this.code + " -> " + this.name + " (" + this.price + " \u20AC)";
 	}
 }

@@ -19,7 +19,7 @@ public class PizzaDaoMemoryArrayListImpl implements IPizzaDao {
 	public PizzaDaoMemoryArrayListImpl() {
 		pizzas = new ArrayList<>();
 
-		pizzas.add(new Pizza("PEP", "Pépéroni", 12.5));
+		pizzas.add(new Pizza("PEP", "PÃ©pÃ©roni", 12.5));
 		pizzas.add(new Pizza("MAR", "Margherita", 14));
 		pizzas.add(new Pizza("REIN", "La Reine", 11.5));
 		pizzas.add(new Pizza("FRO", "La 4 fromages", 12));
@@ -30,20 +30,17 @@ public class PizzaDaoMemoryArrayListImpl implements IPizzaDao {
 	}
 
 	@Override
-	public boolean isExistingPizzaCode(String codeToVerify) {
+	public boolean isExistingPizzaCode(String pizzaCodeToCheck) {
 		for (Pizza pizza : pizzas) {
-			if (pizza.getCode().equals(codeToVerify)) {
+			if (pizza.getCode().equals(pizzaCodeToCheck)) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
+
 	@Override
 	public List<Pizza> findAllPizzas() {
-		for (Pizza pizza : pizzas) {
-			System.out.println(pizza.getId() + " - " + pizza.getCode() + " -> " + pizza.getName() + " (" + pizza.getPrice() + " \u20AC)");
-		}
 		return pizzas;
 	}
 
@@ -53,30 +50,28 @@ public class PizzaDaoMemoryArrayListImpl implements IPizzaDao {
 	}
 
 	@Override
-	public boolean updatePizza(String userCodeToUpdate, Pizza pizzaUpdates) {
-		Pizza pizzaToUpdate = findPizzaByCode(userCodeToUpdate);
-		
+	public boolean updatePizza(String codeToUpdate, Pizza pizzaUpdates) {
+		Pizza pizzaToUpdate = findPizzaByCode(codeToUpdate);
 		if (pizzaToUpdate != null) {
 			pizzaToUpdate.setCode(pizzaUpdates.getCode());
 			pizzaToUpdate.setName(pizzaUpdates.getName());
 			pizzaToUpdate.setPrice(pizzaUpdates.getPrice());
+			
+			return true;
 		}
-		System.out.println("THE MODIFIED PIZZA IS : " + pizzaToUpdate.getCode() + " -> " + pizzaToUpdate.getName()
-				+ " (" + pizzaToUpdate.getPrice() + " \u20AC)");
-		return true;
+		
+		return false;
 	}
 
 	public Pizza findPizzaByCode(String codePizza) {
-		Pizza foundPizza = null;
-
 		for (Pizza pizza : pizzas) {
 			if (pizza.getCode().equals(codePizza)) {
-				foundPizza = pizza;
+				return pizza;
 			}
 		}
-		return foundPizza;
+		return null;
 	}
-	
+
 	@Override
 	public boolean deletePizza(String pizzaCodeToDelete) {
 		for (Pizza pizza : pizzas) {
