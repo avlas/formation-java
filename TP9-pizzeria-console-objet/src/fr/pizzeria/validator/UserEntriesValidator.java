@@ -2,6 +2,7 @@ package fr.pizzeria.validator;
 
 import fr.pizzeria.console.PizzeriaAdminConsoleApp;
 import fr.pizzeria.exception.StorageException;
+import fr.pizzeria.model.PizzaType;
 
 /**
  * @author ali
@@ -23,7 +24,7 @@ public class UserEntriesValidator {
 		return userCode.toUpperCase();
 	}
 
-	public String validateUserName() throws StorageException {
+	public String validateUserName() {
 		System.out.println("Choose a NAME (without spaces) : ");
 		
 		String userName = PizzeriaAdminConsoleApp.input.next();
@@ -47,5 +48,21 @@ public class UserEntriesValidator {
 			throw new StorageException("\nThe PRICE [" + userPriceStr + "] must be a number !");
 		}
 		return userPrice;
+	}
+	
+	public PizzaType validateUserType() throws StorageException {
+		System.out.println("Choose a TYPE : ");
+
+		String userType = PizzeriaAdminConsoleApp.input.next();
+
+		for(PizzaType type : PizzaType.values()) {
+			if(!type.getValue().equalsIgnoreCase(userType)) {
+				throw new StorageException("\nThe TYPE must be one of this values : Meat | Fish | Without meat");
+			} else {
+				return type;
+			}
+		}
+
+		return null;
 	}
 }

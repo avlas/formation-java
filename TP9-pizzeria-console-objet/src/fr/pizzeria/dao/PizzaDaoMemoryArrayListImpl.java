@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.model.PizzaType;
 
 /**
  * @author ali
@@ -19,14 +20,14 @@ public class PizzaDaoMemoryArrayListImpl implements IPizzaDao {
 	public PizzaDaoMemoryArrayListImpl() {
 		pizzas = new ArrayList<>();
 
-		pizzas.add(new Pizza("PEP", "Pépéroni", 12.5));
-		pizzas.add(new Pizza("MAR", "Margherita", 14));
-		pizzas.add(new Pizza("REIN", "La Reine", 11.5));
-		pizzas.add(new Pizza("FRO", "La 4 fromages", 12));
-		pizzas.add(new Pizza("CAN", "La cannibale", 12.5));
-		pizzas.add(new Pizza("SAV", "La savoyarde", 13));
-		pizzas.add(new Pizza("ORI", "L'orientale", 13.5));
-		pizzas.add(new Pizza("IND", "L'indienne", 14));
+		pizzas.add(new Pizza("PEP", "Pépéroni", 12.5, PizzaType.WITHOUT_MEAT));
+		pizzas.add(new Pizza("MAR", "Margherita", 14, PizzaType.MEAT));
+		pizzas.add(new Pizza("REIN", "La Reine", 11.5, PizzaType.MEAT));
+		pizzas.add(new Pizza("FRO", "La 4 fromages", 12, PizzaType.WITHOUT_MEAT));
+		pizzas.add(new Pizza("CAN", "La cannibale", 12.5, PizzaType.MEAT));
+		pizzas.add(new Pizza("SAV", "La savoyarde", 13, PizzaType.WITHOUT_MEAT));
+		pizzas.add(new Pizza("ORI", "L'orientale", 13.5, PizzaType.WITHOUT_MEAT));
+		pizzas.add(new Pizza("IND", "L'indienne", 14, PizzaType.WITHOUT_MEAT));
 	}
 
 	@Override

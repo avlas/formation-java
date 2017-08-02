@@ -25,7 +25,7 @@ public class ListAllPizzasOptionMenu extends OptionMenu {
 		System.out.println("\n***** LIST ALL PIZZAS : ***** ");
 		System.out.println("***************************** ");
 
-		System.out.println("\nID : CODE -> NAME (PRICE)");
+		System.out.println("\nID : CODE -> NAME (PRICE) - TYPE");
 		System.out.println("-------------------------");
 
 		List<Pizza> pizzas = dao.findAllPizzas();

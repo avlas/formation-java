@@ -19,18 +19,21 @@ public class Pizza {
 
 	/** price : double */
 	private double price;
+	
+	private PizzaType type;
 
 	/** Constructor
 	 * @param code
 	 * @param name
 	 * @param price
 	 */
-	public Pizza(String code, String name, double price) {
+	public Pizza(String code, String name, double price, PizzaType type) {
 		super();
 		this.id = nextId++;
 		this.code = code;
 		this.name = name;
 		this.price = price;
+		this.type = type;
 	}
 
 	public Integer getId() {
@@ -65,8 +68,16 @@ public class Pizza {
 		this.price = price;
 	}
 	
+	public PizzaType getPizzaType() {
+		return type;
+	}
+
+	public void setPizzaType(PizzaType type) {
+		this.type = type;
+	}
+
 	@Override
 	public String toString() {
-		return "id = " + this.id + " : " + this.code + " -> " + this.name + " (" + this.price + " \u20AC)";
+		return "id = " + this.id + " : " + this.code + " -> " + this.name + " (" + this.price + " \u20AC)" + " -> " + this.type.getValue();
 	}
 }

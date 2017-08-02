@@ -5,6 +5,7 @@ import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.StorageException;
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.model.PizzaType;
 
 /**
  * @author AVL
@@ -35,14 +36,15 @@ public class AddPizzaOptionMenu extends OptionMenu {
 
 		String userName = PizzeriaAdminConsoleApp.validator.validateUserName();
 		double userPrice = PizzeriaAdminConsoleApp.validator.validateUserPrice();
+		PizzaType userType = PizzeriaAdminConsoleApp.validator.validateUserType();
 
-		Pizza pizzaToSave = new Pizza(userCode, userName, userPrice);
+		Pizza pizzaToSave = new Pizza(userCode, userName, userPrice, userType);
 
 		boolean isSaved = dao.savePizza(pizzaToSave);
 		if (!isSaved) {
 			throw new SavePizzaException("\nImpossible to save the pizza [" + pizzaToSave + "] !");
 		}
 
-		System.out.println("\nNew PIZZA was saved : [" + pizzaToSave + "] !");
+		System.out.println("\nNew PIZZA was saved : [" + pizzaToSave + "] ");
 	}
 }
