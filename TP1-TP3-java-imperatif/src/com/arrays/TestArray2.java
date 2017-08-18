@@ -1,6 +1,7 @@
 package com.arrays;
 
 /**
+ * Application with array's operations -> average / getIndex / countDuplicates
  * @author AVL
  */
 public class TestArray2 {

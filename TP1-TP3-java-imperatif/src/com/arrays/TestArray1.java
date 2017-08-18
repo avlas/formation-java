@@ -1,6 +1,7 @@
 package com.arrays;
 
 /**
+ * Application with array's operations -> list / reverse / greater / even / max / min
  * @author AVL
  */
 public class TestArray1 {

@@ -3,20 +3,22 @@ package com.arrays;
 import java.util.Scanner;
 
 /**
+ * Fibonacci - recursive way
  * @author AVL
  *
  */
 public class TestFibonacci {
 
-	private static Scanner inputUser;
+	private static Scanner inputUser = new Scanner(System.in);;
 
 	/**
+	 * * The entry-point of the application
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		System.out.println("Please give a limit for Fibonacci serie :");
 
-		inputUser = new Scanner(System.in);
 		while (!inputUser.hasNextInt()) {
 			System.out.println("Please give a number : ");
 			inputUser.nextLine();
@@ -34,6 +36,11 @@ public class TestFibonacci {
 		recursiveFibonacci(userLimit);
 	}
 
+	/**
+	 * Fibonacci - recursive 
+	 * 
+	 * @param userLimit the limit given by the user
+	 */
 	private static void recursiveFibonacci(int userLimit) {
 		int index = 1;
 
@@ -44,7 +51,12 @@ public class TestFibonacci {
 		}
 		System.out.println("\n");
 	}
-
+	
+	/**
+	 * Fibonacci  
+	 * 
+	 * @param i the index
+	 */
 	private static int fibonacci(int i) {
 		if (i <= 2) {
 			return 1;
