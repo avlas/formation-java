@@ -2,25 +2,26 @@
  * @author AVL
  *
  */
-package com.operateurs.console;
+package com.operators.console;
 
 import java.util.Scanner;
 
-public class OperateursApp {
-	private static Scanner inputUser;
+public class OperatorsApp {
+	private static Scanner userInput;
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		inputUser = new Scanner(System.in);
+		System.out.print("***** Application Operators ***** \nPlease enter the first number : ");
+		
+		userInput = new Scanner(System.in);
 
-		if (inputUser != null) {
-			System.out.print("***** Application Operateurs ***** \nPlease enter the first number : ");
-			int firstNumber = inputUser.nextInt();
+		if (userInput != null) {			
+			int firstNumber = userInput.nextInt();
 
 			System.out.print("Please enter the second number : ");
-			int secondNumber = inputUser.nextInt();
+			int secondNumber = userInput.nextInt();
 
 			System.out.println(firstNumber + " + " + secondNumber + " = " + (firstNumber + secondNumber));
 			System.out.println(firstNumber + " - " + secondNumber + " = " + (firstNumber - secondNumber));
@@ -28,7 +29,7 @@ public class OperateursApp {
 			System.out.println(firstNumber + " / " + secondNumber + " = " + (firstNumber / secondNumber));
 			System.out.println(firstNumber + " % " + secondNumber + " = " + (firstNumber % secondNumber));
 
-			inputUser.close();
+			userInput.close();
 		}
 	}
 }
