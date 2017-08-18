@@ -2,11 +2,11 @@ package com.arrays;
 
 /**
  * @author AVL
- *
  */
 public class TestArray2 {
 
 	/**
+	 * The entry-point of the application
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -18,11 +18,12 @@ public class TestArray2 {
 		// Retrieve the index of an item
 		retrieveItemIndex(intArray, 15);
 
-		// Find the number of duplicate integers in the array
+		// Count the number of duplicates of an integer
 		countDuplicatesOfItem(intArray, 7);
 	}
 
 	/**
+	 * Calculate the average of the array
 	 * @param intArray
 	 */
 	private static void calculateArrayAverage(int[] intArray) {
@@ -37,6 +38,7 @@ public class TestArray2 {
 	}
 
 	/**
+	 * Retrieve the index of an item
 	 * @param intArray
 	 * @param item
 	 */
@@ -53,6 +55,7 @@ public class TestArray2 {
 	}
 
 	/**
+	 * Count the number of duplicates of an integer
 	 * @param intArray
 	 * @param nbToCheck
 	 */
