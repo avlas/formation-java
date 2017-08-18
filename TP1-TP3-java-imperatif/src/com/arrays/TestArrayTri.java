@@ -4,25 +4,26 @@ import java.util.Arrays;
 
 /**
  * @author AVL
- *
  */
 public class TestArrayTri {
 
 	/**
+	 * The entry-point of the application
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] intArray = { 1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4 };
+		final int[] intArray = { 1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4 };
 
-		// Ascending sort of the array - imperative way
+		// Ascending sort - imperative way
 		sortArray(intArray);
 
-		// Ascending sort of the array - using objects
+		// Ascending sort - using objects
 		sortArrayUsingObjects(intArray);
 
 	}
 
 	/**
+	 * Ascending sort - imperative way
 	 * @param unsortedArray
 	 */
 	public static void sortArray(int[] unsortedArray) {
@@ -40,7 +41,7 @@ public class TestArrayTri {
 			}
 		}
 
-		System.out.print("Ascending sort of the array - imperative way : ");
+		System.out.print("Ascending sort (imperative way) : ");
 
 		for (int i = 0; i < sortedArray.length; i++) {
 			if (i != sortedArray.length - 1) {
@@ -53,11 +54,12 @@ public class TestArrayTri {
 	}
 
 	/**
+	 * Ascending sort - using objects
 	 * @param unsortedArray
 	 */
 	public static void sortArrayUsingObjects(int[] unsortedArray) {
 		Arrays.sort(unsortedArray);
-		System.out.println("Ascending sort of the table - using objects : " + Arrays.toString(unsortedArray));
+		System.out.println("Ascending sort (using objects) : " + Arrays.toString(unsortedArray));
 	}
 
 }
