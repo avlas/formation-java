@@ -7,15 +7,15 @@ package com.arrays;
 public class TestArray1 {
 
 	/**
-	 * @param args
+	 * The entry-point of the application
 	 */
 	public static void main(String[] args) {
-		int[] intArray = { 1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4 };
+		final int[] intArray = { 1, 15, -3, 0, 8, 7, 4, -2, 28, 7, -1, 17, 2, 3, 0, 14, -4 };
 
-		// List all items of the array
+		// List all items 
 		listAllItems(intArray);
 
-		// List all items in reverse order of the array
+		// List all items in reverse order
 		listReversedItems(intArray);
 
 		// List only the items greater than 3
@@ -32,6 +32,7 @@ public class TestArray1 {
 	}
 
 	/**
+	 * List all items, using a loop
 	 * @param intArray
 	 */
 	private static void listAllItems(int[] intArray) {
@@ -49,6 +50,7 @@ public class TestArray1 {
 	}
 
 	/**
+	 * List all items in reverse order
 	 * @param intArray
 	 */
 	private static void listReversedItems(int[] intArray) {
@@ -66,6 +68,7 @@ public class TestArray1 {
 	}
 
 	/**
+	 * List only the items greater than 3
 	 * @param intArray
 	 */
 	private static void listItemsGreaterThan3(int[] intArray) {
@@ -85,6 +88,7 @@ public class TestArray1 {
 	}
 
 	/**
+	 * List only even items
 	 * @param intArray
 	 */
 	private static void listEvenItems(int[] intArray) {
@@ -104,6 +108,7 @@ public class TestArray1 {
 	}
 
 	/**
+	 *  List the maximum of the array
 	 * @param intArray
 	 */
 	private static void showMaximum(int[] intArray) {
@@ -119,6 +124,7 @@ public class TestArray1 {
 	}
 
 	/**
+	 * List the minimum of the array
 	 * @param intArray
 	 */
 	private static void showMinimum(int[] intArray) {
