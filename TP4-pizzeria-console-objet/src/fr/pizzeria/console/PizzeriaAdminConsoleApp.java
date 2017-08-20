@@ -112,8 +112,7 @@ public class PizzeriaAdminConsoleApp {
 
 		listPizzas[lastIndex + 1] = new Pizza(userCode, userName, userPrice);
 
-		System.out.println(listPizzas[lastIndex + 1].getCode() + " -> " + listPizzas[lastIndex + 1].getName() + " ("
-				+ listPizzas[lastIndex + 1].getPrice() + " €)");
+		System.out.println(listPizzas[lastIndex + 1].toString());
 		System.out.println("\n --------------------------------------------- ");
 	}
 
@@ -138,8 +137,7 @@ public class PizzeriaAdminConsoleApp {
 				userPrice = input.nextDouble();
 				listPizzas[i].setPrice(userPrice);
 
-				System.out.println(listPizzas[i].getCode() + " -> " + listPizzas[i].getName() + " ("
-						+ listPizzas[i].getPrice() + " €)");
+				System.out.println(listPizzas[i].toString());
 				break;
 			}
 		}
@@ -161,6 +159,7 @@ public class PizzeriaAdminConsoleApp {
 			}
 		}
 
+		System.out.println("The pizza with the code " + userCode + " was successfully deleted !");
 		System.out.println("\n --------------------------------------------- ");
 	}
 }
