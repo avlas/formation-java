@@ -62,8 +62,7 @@ public class PizzaDaoMemoryImpl implements IPizzaDao {
 
 		this.pizzas[lastIndex + 1] = pizza;
 
-		System.out.println("This pizza was added : " + pizzas[lastIndex + 1].getCode() + " -> "
-				+ pizzas[lastIndex + 1].getName() + " (" + pizzas[lastIndex + 1].getPrice() + " \u20AC)");
+		System.out.println("Added " + pizzas[lastIndex + 1].toString());
 
 		return true;
 	}
@@ -75,8 +74,7 @@ public class PizzaDaoMemoryImpl implements IPizzaDao {
 				pizzas[i].setCode(pizza.getCode());
 				pizzas[i].setName(pizza.getName());
 				pizzas[i].setPrice(pizza.getPrice());
-				System.out.println("This pizza was modified : " + pizzas[i].getCode() + " -> " + pizzas[i].getName()
-						+ " (" + pizzas[i].getPrice() + " \u20AC)");
+				System.out.println("Modified " + pizzas[i].toString());
 				return true;
 			}
 		}
@@ -92,7 +90,7 @@ public class PizzaDaoMemoryImpl implements IPizzaDao {
 				break;
 			}
 		}
-
+		System.out.println("The pizza \"" + codePizza + "\" was successfully deleted !! ");
 		return true;
 	}
 }
