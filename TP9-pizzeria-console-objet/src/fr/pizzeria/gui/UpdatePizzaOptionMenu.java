@@ -61,11 +61,11 @@ public class UpdatePizzaOptionMenu extends OptionMenu {
 
 		/*
 		 * boolean isUpdated = dao.updatePizza(oldUserCode, pizzaToUpdate); if
-		 * (!isUpdated) { throw new
-		 * UpdatePizzaException("\nImpossible to update the pizza [" +
-		 * pizzaToUpdate + "] !"); }
+		 * (!isUpdated) { 
+		 * 		throw new UpdatePizzaException("\nImpossible to update the pizza [" + pizzaToUpdate + "] !"); 
+		 * }
 		 */
 
-		System.out.println("\nThe PIZZA [" + pizzaToUpdate + "]  was modified !");
+		System.out.println("\nThe PIZZA " + oldUserCode + " was modified into [" + pizzaToUpdate + "]   !");
 	}
 }

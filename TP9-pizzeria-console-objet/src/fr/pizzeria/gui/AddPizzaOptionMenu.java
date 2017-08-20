@@ -12,7 +12,6 @@ import fr.pizzeria.model.PizzaType;
  *
  */
 public class AddPizzaOptionMenu extends OptionMenu {
-
 	private IPizzaDao dao;
 
 	public AddPizzaOptionMenu(IPizzaDao dao) {
